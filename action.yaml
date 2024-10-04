@@ -34,7 +34,7 @@ runs:
           echo "/opt/eda/bin" >> $GITHUB_PATH
           cd work
           make cdl CELL=$CELL LIB=$LIBRARY || /bin/true
-          make lvs lpe CELL=$CELL LIB=$LIBRARY
+          make xlvs lpe CELL=$CELL LIB=$LIBRARY
           cat lvs/${CELL}_lvs.log >> $GITHUB_STEP_SUMMARY
           tail -n 1 drc/${CELL}_drc.log| perl -ne '$exit =0;if(!m/:\s+0\n/ig){$exit = 1;}if(m/couldn?t be read/ig){$exit = 2}; exit $exit'
       - name: Run LPE
