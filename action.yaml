@@ -56,7 +56,7 @@ runs:
           echo -e "\`\`\`\n" >> $GITHUB_STEP_SUMMARY
           echo -e "\n\n##  LVS\n\n" >> $GITHUB_STEP_SUMMARY
           echo -e "\`\`\`bash\n" >> $GITHUB_STEP_SUMMARY
-          cat lpe/${CELL}_lvs.log >> $GITHUB_STEP_SUMMARY
+          test -f lpe/${CELL}_lvs.log && cat lpe/${CELL}_lvs.log >> $GITHUB_STEP_SUMMARY
           echo -e  "\`\`\`\n" >> $GITHUB_STEP_SUMMARY
       - name: Archive LVS/LPE
         uses: actions/upload-artifact@v4
